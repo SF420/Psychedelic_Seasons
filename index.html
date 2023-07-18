@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychedelic Seasons Mint Site</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100%;
+    }
+
+    #logo {
+        height: calc(25vw * 0.3);
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 15px 0;
+    }
+
+    #seasons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 70vw;
+        margin-bottom: 20px;
+    }
+
+    #spring, #autumn, #winter, #summer {
+        width: calc(35vw);
+        height: calc(35vw * 0.3361344537815126);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #links-wrapper {
+        padding: 10px 0 0 0;
+        width: 100%;
+        background-color: black;
+    }
+
+    #links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #links a {
+        margin: 0 10px;
+        text-decoration: none; /* No underline */
+        outline: none;
+    }
+
+    #links a:hover {
+        color: #f00;
+    }
+
+    /* CSS class for equal size logo */
+.logo-size {
+    width: auto; /* Maintain the aspect ratio */
+    height: 60px; /* Or whatever size you want */
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.logo-wide {
+    width: 169px; /* Maintain the aspect ratio */
+    height: 60px; /* Or whatever size you want */
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+
+
+
+    #opensea-badge, #first-logo {
+        width: auto;
+        height: auto;
+    }
+
+    #center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url('https://storage.googleapis.com/psychedelic_seasons/seamlesscheck%20Psychedelic%20Seasons%201.png');
+        background-repeat: repeat;
+        background-size: 1000px 1000px;
+        width: 100%;
+    }
+
+    iframe {
+        margin: 20px auto;
+        display: block;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="logo" style="background-image: url('logo_url_here');"></div>
+    <div id="seasons">
+        <div id="spring"></div>
+        <div id="summer"></div>
+        <div id="autumn"></div>
+        <div id="winter"></div>
+    </div>
+
+    <div id="links-wrapper">
+        <div id="links">
+            <a href="https://psychedelicseasons.com" target="_blank" title="Psychedelic Seasons Mint">
+    <img class="logo-size" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%20Seasonal%20Shrooms%20Logo.png" alt="Psychedelic Seasons Minting Logo">
+</a>
+<a href="https://opensea.io/NoBanksNearby" title="Psychedelic Seasons on OpenSea" target="_blank">
+    <img class="logo-wide" style="border-radius:5px; box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);" src="https://storage.googleapis.com/opensea-static/Logomark/Badge%20-%20Available%20On%20-%20Dark.png" alt="Available on OpenSea" />
+</a>
+<a href="https://opensea.io/NoBanksNearby" target="_blank" title="NoBanks Nearby on OpenSea">
+    <img class="logo-size" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.png" alt="OpenSea Logo">
+</a>
+<a href="https://foundation.app/@NoBanksNearby" target="_blank" title="NoBanks Nearby on Foundation">
+    <img class="logo-size" style="width:80px; height:80px;" src="https://storage.googleapis.com/psychedelic_seasons/Foundation%20FND%20logo.png" alt="Foundation Logo">
+</a>
+<a href="https://twitter.com/NoBanksNearby" target="_blank" title="NoBanks Nearby on Twitter">
+    <img class="logo-size" src="https://storage.googleapis.com/psychedelic_seasons/twitter-icon-black-background-25.png" alt="Twitter Logo">
+</a>
+
+        </div>
+    </div>
+
+    <div id="center">
+        <iframe src="https://bafybeidpp4d3znpjxlvlhitaylbqwmyk2gzcxazp5wkftvwu7r3lsyku2q.gateway.ipfscdn.io/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F5a9bc94b87f7cbbbfbbc234bf1e07f0adf5f3cf3012c9f26f9fc9820d64df93a%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%7D&theme=dark&primaryColor=green" width="750px" height="750px" style="max-width:100%;" frameborder="0" ></iframe>
+    </div>
+    
+    <!-- Your JavaScript code here -->
+
+</body>
+</html>
+
+    
+    <script>
+        // Initialize an array for each season with the URLs of the images
+        var springImages = [
+            "https://storage.googleapis.com/psychedelic_seasons/SPRING%201.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%202.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%203.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%204.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%205.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%206.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%207.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%208.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%209.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2010.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2011.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2012.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2013.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2014.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2015.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2016.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2017.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2018.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2019.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2020.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2021.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2022.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2023.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2024.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2025.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2026.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2027.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2028.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2029.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2030.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2031.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2032.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2033.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2034.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2035.png",
+"https://storage.googleapis.com/psychedelic_seasons/SPRING%2036.png"
+        ];
+
+        var summerImages = [
+            "https://storage.googleapis.com/psychedelic_seasons/SUMMER%201.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%202.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%203.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%204.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%205.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%206.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%207.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%208.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%209.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2010.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2011.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2012.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2013.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2014.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2015.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2016.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2017.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2018.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2019.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2020.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2021.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2022.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2023.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2024.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2025.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2026.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2027.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2028.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2029.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2030.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2031.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2032.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2033.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2034.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2035.png",
+"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2036.png"
+        ];
+
+        var autumnImages = [
+           "https://storage.googleapis.com/psychedelic_seasons/AUTUMN%201.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%202.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%203.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%204.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%205.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%206.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%207.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%208.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%209.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2010.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2011.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2012.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2013.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2014.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2015.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2016.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2017.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2018.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2019.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2020.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2021.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2022.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2023.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2024.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2025.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2026.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2027.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2028.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2029.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2030.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2031.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2032.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2033.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2034.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2035.png",
+"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2036.png"
+        ];
+
+        var winterImages = [
+            "https://storage.googleapis.com/psychedelic_seasons/WINTER%201.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%202.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%203.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%204.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%205.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%206.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%207.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%208.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%209.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2010.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2011.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2012.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2013.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2014.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2015.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2016.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2017.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2018.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2019.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2020.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2021.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2022.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2023.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2024.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2025.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2026.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2027.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2028.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2029.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2030.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2031.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2032.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2033.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2034.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2035.png",
+"https://storage.googleapis.com/psychedelic_seasons/WINTER%2036.png"
+        ];
+
+        // Function to get a random image from an array
+        function getRandomImage(imgAr) {
+            var num = Math.floor(Math.random() * imgAr.length);
+            var img = imgAr[num];
+            var imgStr = 'url(' + img + ')';
+            return imgStr;
+        }
+
+        // Use the function for each season
+        document.getElementById('spring').style.backgroundImage = getRandomImage(springImages);
+        document.getElementById('summer').style.backgroundImage = getRandomImage(summerImages);
+        document.getElementById('autumn').style.backgroundImage = getRandomImage(autumnImages);
+        document.getElementById('winter').style.backgroundImage = getRandomImage(winterImages);
+    </script>
+</body>
+</html>
