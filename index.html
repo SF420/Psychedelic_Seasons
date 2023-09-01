@@ -225,37 +225,53 @@
   font-size: 1.3em;
 }
 
-/* Media Query for Tablets */
-    @media (min-width: 481px) and (max-width: 1024px) {
-        .text-below-grid, .text-below-video {
-            font-size: calc(1.2rem + 0.5vw);  /* Dynamic font size */
-    line-height: 1.2;  /* Adjust line height */
+/* Media Query for Mobile */
+@media (max-width: 480px) {
+  /* Increase logo size */
+  #logo {
+    height: 10rem;
   }
 
-      /* Adjust seasons grid */
-      #seasons {
-        width: 90vw;
-      }
+  /* Increase seasons grid */
+  #seasons {
+    width: 100vw;
+  }
 
-      /* Adjust individual season size */
-      #spring, #autumn, #winter, #summer {
-        width: calc(45vw);
-        height: calc(45vw * 0.3361344537815126);
-      }
+  /* Adjust individual season size */
+  #spring, #autumn, #winter, #summer {
+    width: calc(50vw - 10px);
+    height: calc((50vw - 10px) * 0.3361344537815126);
+  }
 
-      /* Adjust text size below grid and video */
-      .text-below-grid, .text-below-video {
-        font-size: 1.5rem;
-      }
+  /* Increase text size below grid and video */
+  .text-below-grid, .text-below-video {
+    font-size: 1.8rem;
+  }
 
-      /* Adjust video frame size */
-      #video-frame {
-        width: 90vw;
-      }
-      #season-video {
-        height: calc(90vw / 3);
-      }
-    }
+  /* Adjust video frame size */
+  #video-frame {
+    width: 100vw;
+  }
+  
+  #season-video {
+    height: calc(100vw / 3);
+  }
+  
+  /* Increase font size for arrows and sample mints text */
+  .fas.fa-arrow-down {
+    font-size: 7rem;
+  }
+
+  .sample-mints-text {
+    font-size: 4rem;
+  }
+
+  /* Increase iframe size */
+  .iframe-container {
+    width: 90%;
+    padding-bottom: 56.25%;
+  }
+}
 
 
 
