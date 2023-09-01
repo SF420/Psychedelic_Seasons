@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <!-- Metadata for the site -->
     <title>Psychedelic Seasons Mint Site</title>
     <meta name="description" content="Welcome to the Psychedelic Seasons Mint Site. Explore beautiful seasonal art.">
     <meta name="keywords" content="Psychedelic, Seasons, Art, Mint">
@@ -13,10 +15,12 @@
 
 
 
-    <!-- Add Video.js CSS and JS files -->
+    <!-- Video.js CSS and JS files -->
     <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
-    <style>
+    
+	<!-- Custom CSS -->
+	<style>
 	/* Commonly used variables */
     :root {
         --text-color: white;
@@ -97,6 +101,7 @@
     height: 60px; /* Or whatever size you want */
     margin-right: 25px;
     margin-left: 25px;
+	vertical-align: middle;  /* Added */
 }
 
 .logo-wide {
@@ -104,6 +109,7 @@
     height: 60px; /* Or whatever size you want */
     margin-right: 25px;
     margin-left: 25px;
+	vertical-align: middle;  /* Added */
 }
 
 
@@ -297,6 +303,7 @@
 
 /* Add to your existing stylesheet */
 .logo-size.custom-dimensions {
+vertical-align: middle;
     width: 80px;
     height: 80px;
 }
@@ -308,13 +315,15 @@
  
  .logo-ps-seasons,
 .logo-foundation {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+	vertical-align: middle;
 }
 
 .logo-opensea-badge {
     border-radius: 5px;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+	vertical-align: middle;
 }
 
 /* Disable pinch zoom for iframe */
@@ -361,6 +370,9 @@ body {
 
 
     </style>
+	
+	
+	<!-- Fonts and Icons -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
@@ -369,13 +381,13 @@ body {
 </head>
 <body>
 
-  <!-- Logo -->
+  <!-- Logo Section -->
   <a href="https://psychedelicseasons.com" target="_blank" title="Psychedelic Seasons Mint" aria-label="Visit Psychedelic Seasons Mint site, opens in new tab">
     <img id="logo" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED.png" alt="Psychedelic Seasons Logo">
   </a>
   
   
-  <!-- iFrame -->
+  <!-- iFrame Section -->
   <div class="iframe-container">
     <iframe 
         src="https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green"
@@ -385,7 +397,7 @@ body {
 </div>
 
 
-<!-- Add this part above your Seasons grid -->
+<!-- Sample Mints Section -->
 <p class="sample-mints-text">
   <i class="fas fa-arrow-down fa-arrow-down-left"></i> <!-- Left Down Arrow -->
   Sample mints (refresh to see more):
@@ -395,7 +407,7 @@ body {
 
 
 
-  <!-- Seasons -->
+  <!-- Seasons Grid -->
 <div id="seasons">
   <img id="spring" class="no-right-click" loading="lazy" alt="A possible Spring-themed NFT you can mint">
   <img id="summer" class="no-right-click" loading="lazy" alt="A possible Summer-themed NFT you can mint">
@@ -406,7 +418,7 @@ body {
 
 
 
-<!-- Video -->
+<!-- Video Section -->
     <div id="video-frame">
         <video id="season-video" class="no-right-click" width="100%" height="23.333vw" autoplay muted loop>
             <source id="video-source" src="" type="video/mp4">
@@ -416,8 +428,8 @@ body {
 
 
 
-
-    <div id="links-wrapper">
+<!-- Links Section -->
+<div id="links-wrapper">
     <div id="links">
         
         <a href="https://opensea.io/NoBanksNearby" target="_blank" title="NoBanks Nearby on OpenSea">
@@ -434,9 +446,7 @@ body {
 
 
     
-    <!-- Your JavaScript code here -->
-
-    
+    <!-- JavaScript Code -->
     <script>
 	
 	 // Handle JavaScript errors
@@ -633,6 +643,9 @@ body {
 var videoSets = [
   "https://storage.googleapis.com/psychedelic_seasons/SPRING%201.mp4",
   "https://storage.googleapis.com/psychedelic_seasons/AUTUMN%201.mp4",
+  "https://storage.googleapis.com/psychedelic_seasons/AUTUMN%202.mp4",
+  "https://storage.googleapis.com/psychedelic_seasons/SPRING%202.mp4",
+  "https://storage.googleapis.com/psychedelic_seasons/Summer%204.mp4",
   "https://storage.googleapis.com/psychedelic_seasons/Summer%202.mp4"
   // Add more video URLs here when you have them
 ];
@@ -668,4 +681,3 @@ var videoSets = [
     </script>
 </body>
 </html>
-
