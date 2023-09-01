@@ -127,20 +127,18 @@
 
 /* Text below image grid */
 .text-below-grid {
-  color: white;
-  margin-top: 20px;  /* Adjusted top margin */
-  margin-bottom: 80px;
-  font-size: 2rem;
-  text-align: center;
+  /* ... Existing styles ... */
+  white-space: nowrap;  /* Prevents the text from wrapping onto the next line */
+  overflow: hidden;  /* Hide the overflow */
+  text-overflow: ellipsis;  /* Add an ellipsis when the text overflows */
 }
 
 /* Text below video frame */
 .text-below-video {
-  color: white;
-  margin-top: 40px;  /* Adjusted top margin */
-  margin-bottom: 80px;
-  font-size: 2rem;
-  text-align: center;
+  /* ... Existing styles ... */
+  white-space: nowrap;  /* Prevents the text from wrapping onto the next line */
+  overflow: hidden;  /* Hide the overflow */
+  text-overflow: ellipsis;  /* Add an ellipsis when the text overflows */
 }
 
 /* Added new style to disable right-click */
@@ -220,11 +218,12 @@
 }
 
 /* Media Query for Mobile Devices */
-    @media (max-width: 480px) {
-      /* Adjust logo size */
-      #logo {
-        height: calc(15vw * 0.3);
-      }
+@media (max-width: 480px) {
+  /* ... existing styles ... */
+  .text-below-grid, .text-below-video {
+    font-size: calc(1rem + 1vw);  /* Dynamic font size */
+    line-height: 1.2;  /* Adjust line height */
+  }
 
       /* Adjust seasons grid */
       #seasons {
@@ -252,11 +251,11 @@
     }
 
     /* Media Query for Tablets */
-    @media (min-width: 481px) and (max-width: 1024px) {
-      /* Adjust text size below grid and video */
-      .text-below-grid, .text-below-video {
-        font-size: 1.8rem;
-      }
+@media (min-width: 481px) and (max-width: 1024px) {
+  /* ... existing styles ... */
+  .text-below-grid, .text-below-video {
+    font-size: calc(1.2rem + 0.5vw);  /* Dynamic font size */
+  }
 	  
 	  .logo-size.custom-dimensions {
     width: 80px;
