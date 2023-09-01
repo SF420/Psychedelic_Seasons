@@ -127,20 +127,19 @@
 /* Text below image grid */
 .text-below-grid {
   color: white;
-  font-size: 32px;
-  margin-top: 10px;
-  margin-bottom: 40px;  /* Added this line for extra space */
+  margin-top: 20px;  /* Adjusted top margin */
+  margin-bottom: 80px;
+  font-size: 2rem;
   text-align: center;
 }
 
 /* Text below video frame */
 .text-below-video {
   color: white;
-  font-size: 32px;
-  margin-top: 20px; /* Adjust as needed */
-  margin-bottom: 100px; /* Adjust as needed */
+  margin-top: 40px;  /* Adjusted top margin */
+  margin-bottom: 80px;
+  font-size: 2rem;
   text-align: center;
-  /* Removed 'position: absolute;' and other related styles */
 }
 
 /* Added new style to disable right-click */
@@ -163,6 +162,62 @@
 .fa-arrow-up-right {
   margin-left: 30px;
 }
+
+.rainbow-container {
+  display: inline-block;
+  text-align: center;
+}
+
+
+/* Style for the main text */
+.rainbow-text {
+  display: inline;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow-animation 5s infinite linear;
+  vertical-align: middle;  /* Add this line */
+}
+
+/* Style for the subtext */
+.rainbow-subtext {
+  display: block;  /* Change from inline to block */
+  text-align: center; /* Center align the text */
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow-animation 5s infinite linear;
+  vertical-align: middle;  /* Add this line */
+}
+
+/* Style for the emoji */
+.rainbow-emoji {
+  display: inline;
+  color: white;
+  vertical-align: middle;  /* Add this line */
+}
+
+
+/* New class to center the block of text and emojis */
+.rainbow-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+
+@keyframes rainbow-animation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Specific class to make the text larger */
+.larger-text {
+  font-size: 1.3em;
+}
+
 
 
     </style>
@@ -197,16 +252,43 @@
   <img id="autumn" class="no-right-click" loading="lazy" alt="A possible Autumn-themed NFT you can mint">
   <img id="winter" class="no-right-click" loading="lazy" alt="A possible Winter-themed NFT you can mint">
 </div>
-<p class="text-below-grid"><i class="fas fa-arrow-up fa-arrow-up-left"></i>You could possibly mint one of the Psychedelic Seasons STILLS you see above (refresh to see more STILLS)<i class="fas fa-arrow-up fa-arrow-up-right"></i></p>
+<p class="text-below-grid">
+  <i class="fas fa-arrow-up fa-arrow-up-left"></i>
+  You could possibly mint one of the
+  <span class="rainbow-container rainbow-block">
+    <span class="rainbow-text">
+      <span class="rainbow-emoji">🍄</span> Psychedelic Seasons <span class="rainbow-emoji">📅️</span>
+    </span>
+    <span class="rainbow-subtext larger-text">STILLS</span> <!-- Here the new class is applied -->
+  </span>
+  you see above (refresh to see more variations)
+  <i class="fas fa-arrow-up fa-arrow-up-right"></i>
+</p>
+
+
 
 <!-- Video -->
-  <div id="video-frame" style="width: 70vw;">
-    <video id="season-video" class="no-right-click" width="100%" height="23.333vw" autoplay muted loop aria-label="Looping animation showcasing four different seasonal artworks.">
-      <source id="video-source" src="" type="video/mp4">
-      Your browser does not support the video tag or the video failed to load.
-    </video>
-  </div>
-  <p class="text-below-video"><i class="fas fa-arrow-up fa-arrow-up-left"></i>You could possibly mint one of the Psychedelic Seasons ANIMATIONS you see above (refresh to see more ANIMATIONS)<i class="fas fa-arrow-up fa-arrow-up-right"></i></p>
+    <div id="video-frame">
+        <video id="season-video" class="no-right-click" width="100%" height="23.333vw" autoplay muted loop>
+            <source id="video-source" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+<p class="text-below-video">
+  <i class="fas fa-arrow-up fa-arrow-up-left"></i>
+  You could possibly mint one of the
+  <span class="rainbow-container rainbow-block">
+    <span class="rainbow-text">
+      <span class="rainbow-emoji">🍄</span> Psychedelic Seasons <span class="rainbow-emoji">📅️</span>
+    </span>
+    <span class="rainbow-subtext">ANIMATIONS</span>
+  </span>
+  you see above (refresh to see more variations)
+  <i class="fas fa-arrow-up fa-arrow-up-right"></i>
+</p>
+
+
+
 
 
     <div id="links-wrapper">
@@ -237,32 +319,31 @@
     
     <script>
 	
-	window.onerror = function(message, url, lineNumber) {  
-  // Save these to an error log, or send to a server
-  console.log("Error: " + message + " in " + url + " at line " + lineNumber);
-}
+	 // Handle JavaScript errors
+        window.onerror = function(message, url, lineNumber) {  
+            console.log("Error: " + message + " in " + url + " at line " + lineNumber);
+        }
 
-    // Function to get a random image from an array
-    function getRandomImage(imgAr) {
-      var num = Math.floor(Math.random() * imgAr.length);
-      return imgAr[num];
-    }
+        // Function to get a random item from an array
+        function getRandomItem(arr) {
+            var num = Math.floor(Math.random() * arr.length);
+            return arr[num];
+        }
 
-    // Function to handle image errors
-    function imageError(element) {
-      element.src = "fallback_image_url_here";
-    }
+        // Function to handle image errors
+        function imageError(element) {
+            element.src = "fallback_image_url_here";
+        }
 
-    // Function to preload and set the image
-    function preloadAndSetImage(elementId, imgAr) {
-      var imgSrc = getRandomImage(imgAr);
-      var imgElement = document.getElementById(elementId);
-      imgElement.src = imgSrc;
-      imgElement.onerror = function() {
-        imageError(imgElement);
-      };
-    }
-
+        // Preload and set images
+        function preloadAndSetImage(elementId, imgAr) {
+            var imgSrc = getRandomItem(imgAr);
+            var imgElement = document.getElementById(elementId);
+            imgElement.src = imgSrc;
+            imgElement.onerror = function() {
+                imageError(imgElement);
+            };
+        }
 	
         // Initialize an array for each season with the URLs of the images
         var springImages = [
@@ -421,11 +502,11 @@
 "https://storage.googleapis.com/psychedelic_seasons/WINTER%2036.png"
         ];
 		
-		// Use the function for each season
-    preloadAndSetImage('spring', springImages);
-    preloadAndSetImage('summer', summerImages);
-    preloadAndSetImage('autumn', autumnImages);
-    preloadAndSetImage('winter', winterImages);
+	// Preload and set images for each season
+        preloadAndSetImage('spring', springImages);
+        preloadAndSetImage('summer', summerImages);
+        preloadAndSetImage('autumn', autumnImages);
+        preloadAndSetImage('winter', winterImages);
 
     // Initialize array for sets of videos with the URLs of the video files
 var videoSets = [
@@ -435,29 +516,23 @@ var videoSets = [
   // Add more video URLs here when you have them
 ];
 
-// Function to get a random video from an array
-function getRandomVideo(videoAr) {
-  var num = Math.floor(Math.random() * videoAr.length);
-  return videoAr[num];
-}
+ // Function to set the video source and play the video
+        function setAndPlayVideo() {
+            var videoElement = document.getElementById("season-video");
+            var videoSource = document.getElementById("video-source");
+            videoSource.src = getRandomItem(videoSets);
+            videoElement.load();
+            videoElement.play();
+        }
 
-    // Function to set the video source and play the video
-function setAndPlayVideo() {
-  var videoElement = document.getElementById("season-video");
-  var videoSource = document.getElementById("video-source");
-  videoSource.src = getRandomVideo(videoSets);
-  videoElement.load();
-  videoElement.play();
-}
+        // Set the initial video
+        setAndPlayVideo();
 
-// Call the function once to set the initial video
-setAndPlayVideo();
-
- // Added JavaScript to disable context menu (right-click menu)
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
-  </script>
+        // Disable context menu (right-click menu)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
 </body>
 </html>
 
