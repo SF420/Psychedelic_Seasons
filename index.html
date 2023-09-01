@@ -18,14 +18,14 @@
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
     <style>
 	/* Commonly used variables */
-        :root {
-            --text-color: white;
-            --text-center: center;
-            --no-wrap: nowrap;
-            --hidden-overflow: hidden;
-            --ellipsis: ellipsis;
-            --default-font: 'Spicy Rice', cursive;
-        }
+    :root {
+        --text-color: white;
+        --text-center: center;
+        --no-wrap: nowrap;
+        --hidden-overflow: hidden;
+        --ellipsis: ellipsis;
+        --default-font: 'Spicy Rice', cursive;
+    }
 	
     * {
         margin: 0;
@@ -44,28 +44,30 @@
     }
 
     #logo {
-        height: calc(25vw * 0.3);
+        height: 7.5rem;  /* Updated */
         background-repeat: no-repeat;
         background-position: center;
         margin: 15px 0;
     }
 
     #seasons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 70vw;
-    margin-bottom: 20px;
-    margin-top: 50px;  /* Add this line */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 70vw;
+  margin-bottom: 20px;
+  margin-top: 50px;
 }
 
-    #spring, #autumn, #winter, #summer {
-        width: calc(35vw);
-        height: calc(35vw * 0.3361344537815126);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+#spring, #autumn, #winter, #summer {
+  width: 35vw;  /* Update this line */
+  height: calc(35vw * 0.3361344537815126);  /* Update this line */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 
     #links-wrapper {
         padding: 10px 0 0 0;
@@ -135,17 +137,32 @@
       height: calc(70vw / 3);  /* 3:1 aspect ratio */
     }
 
-/* Combine .text-below-grid and .text-below-video */
-.text-below-grid, .text-below-video {
+/* --- Text below video --- */
+.text-below-video {
     color: var(--text-color);
-    font-size: 32px;
-    line-height: 1.5;  /* New line-height property */
-    margin-top: 20px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 10px;
+	margin-bottom: 80px;
     text-align: var(--text-center);
     white-space: var(--no-wrap);
     overflow: var(--hidden-overflow);
     text-overflow: var(--ellipsis);
-    font-family: 'Spicy Rice', cursive;  /* Updated font-family */
+    font-family: 'Spicy Rice', cursive;
+}
+
+/* --- Text below image grid --- */
+.text-below-grid {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 10px;
+	margin-bottom: 80px;
+    text-align: var(--text-center);
+    white-space: var(--no-wrap);
+    overflow: var(--hidden-overflow);
+    text-overflow: var(--ellipsis);
+    font-family: 'Spicy Rice', cursive;
 }
 
 /* Utility Classes */
@@ -237,11 +254,10 @@
   font-size: 1.3em;
 }
 
-/* Media Query for Mobile Devices */
-@media (max-width: 480px) {
-  /* ... existing styles ... */
-  .text-below-grid, .text-below-video {
-    font-size: calc(1rem + 1vw);  /* Dynamic font size */
+/* Media Query for Tablets */
+    @media (min-width: 481px) and (max-width: 1024px) {
+        .text-below-grid, .text-below-video {
+            font-size: calc(1.2rem + 0.5vw);  /* Dynamic font size */
     line-height: 1.2;  /* Adjust line height */
   }
 
@@ -270,13 +286,6 @@
       }
     }
 
-    /* Media Query for Tablets */
-@media (min-width: 481px) and (max-width: 1024px) {
-  /* ... existing styles ... */
-  .text-below-grid, .text-below-video {
-    font-size: calc(1.2rem + 0.5vw);  /* Dynamic font size */
-  }
-	  
 
 
 /* Add to your existing stylesheet */
@@ -333,16 +342,6 @@ body {
     <img id="logo" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED.png" alt="Psychedelic Seasons Logo">
   </a>
   
-   <!-- iFrame -->
-  <div id="center">
-      <iframe
-          src="https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green"
-          width="1000px"
-          height="1000px"
-          style="max-width:100%;"
-          frameborder="0"
-      ></iframe>
-  </div>
 
   <!-- Seasons -->
 <div id="seasons">
@@ -387,7 +386,16 @@ body {
 </p>
 
 
-
+<!-- iFrame -->
+  <div id="center">
+      <iframe
+          src="https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green"
+          width="1000px"
+          height="1000px"
+          style="max-width:100%;"
+          frameborder="0"
+      ></iframe>
+  </div>
 
 
     <div id="links-wrapper">
@@ -418,9 +426,10 @@ body {
     <script>
 	
 	 // Handle JavaScript errors
-        window.onerror = function(message, url, lineNumber) {  
+        window.onerror = function (message, url, lineNumber) {
             console.log("Error: " + message + " in " + url + " at line " + lineNumber);
-        }
+        };
+       
 
         // Function to get a random item from an array
         function getRandomItem(arr) {
@@ -627,21 +636,21 @@ var videoSets = [
         setAndPlayVideo();
 
         // Disable context menu (right-click menu)
-        document.addEventListener('contextmenu', function(e) {
+        document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
-		
-		videoElement.addEventListener('error', function() {
-    console.log("Error with video: ", videoElement.error);
-});
 
-// ... after setting the initial video
-document.addEventListener('DOMContentLoaded', (event) => {
-    var videoElement = document.getElementById("season-video");
-    videoElement.play();
-});
+        // Attach error listener to videoElement
+        var videoElement = document.getElementById("season-video");
+        videoElement.addEventListener('error', function () {
+            console.log("Error with video: ", videoElement.error);
+        });
 
-		
+        // ... after setting the initial video
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var videoElement = document.getElementById("season-video");
+            videoElement.play();
+        });
     </script>
 </body>
 </html>
