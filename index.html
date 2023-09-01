@@ -218,6 +218,46 @@
   font-size: 1.3em;
 }
 
+/* Media Query for Mobile Devices */
+    @media (max-width: 480px) {
+      /* Adjust logo size */
+      #logo {
+        height: calc(15vw * 0.3);
+      }
+
+      /* Adjust seasons grid */
+      #seasons {
+        width: 90vw;
+      }
+
+      /* Adjust individual season size */
+      #spring, #autumn, #winter, #summer {
+        width: calc(45vw);
+        height: calc(45vw * 0.3361344537815126);
+      }
+
+      /* Adjust text size below grid and video */
+      .text-below-grid, .text-below-video {
+        font-size: 1.5rem;
+      }
+
+      /* Adjust video frame size */
+      #video-frame {
+        width: 90vw;
+      }
+      #season-video {
+        height: calc(90vw / 3);
+      }
+    }
+
+    /* Media Query for Tablets */
+    @media (min-width: 481px) and (max-width: 1024px) {
+      /* Adjust text size below grid and video */
+      .text-below-grid, .text-below-video {
+        font-size: 1.8rem;
+      }
+    }
+
 
 
     </style>
