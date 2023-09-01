@@ -47,7 +47,7 @@
         height: 7.5rem;  /* Updated */
         background-repeat: no-repeat;
         background-position: center;
-        margin: 15px 0;
+        margin: 15px 0 5px 0; /* Reduced the bottom margin to 5px */
     }
 
     #seasons {
@@ -55,8 +55,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 70vw;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 
 #spring, #autumn, #winter, #summer {
@@ -77,7 +77,8 @@
 
     #links {
         text-align: center;
-        margin-bottom: 20px;
+        margin-top: 60px;
+		margin-bottom: 70px;
     }
 
     #links a {
@@ -123,12 +124,20 @@
     }
 
     iframe {
-        margin: 20px auto;
+	 margin: 20px auto;
         display: block;
-    }
+    width: 80%;
+    height: 500px;
+    border: none;
+    margin-top: 50px;
+	margin-bottom: 0px;
+}
+
 	
 	#video-frame {
       width: 70vw;
+	  margin-top: 10px;
+	margin-bottom: 20px;
     }
 
 
@@ -137,33 +146,6 @@
       height: calc(70vw / 3);  /* 3:1 aspect ratio */
     }
 
-/* --- Text below video --- */
-.text-below-video {
-    color: var(--text-color);
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-top: 10px;
-	margin-bottom: 80px;
-    text-align: var(--text-center);
-    white-space: var(--no-wrap);
-    overflow: var(--hidden-overflow);
-    text-overflow: var(--ellipsis);
-    font-family: 'Spicy Rice', cursive;
-}
-
-/* --- Text below image grid --- */
-.text-below-grid {
-    color: var(--text-color);
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-top: 10px;
-	margin-bottom: 80px;
-    text-align: var(--text-center);
-    white-space: var(--no-wrap);
-    overflow: var(--hidden-overflow);
-    text-overflow: var(--ellipsis);
-    font-family: 'Spicy Rice', cursive;
-}
 
 /* Utility Classes */
 .u-text-center {
@@ -187,17 +169,6 @@
   pointer-events: none;
 }
 
-
-.fas.fa-arrow-up {
-  font-size: 50px;
-  -webkit-text-stroke: 1px black;  /* Add stroke (outline) to icon */
-}
-.fa-arrow-up-left {
-  margin-right: 30px;
-}
-.fa-arrow-up-right {
-  margin-left: 30px;
-}
 
 .rainbow-container {
   display: inline-block;
@@ -326,6 +297,47 @@ body {
   /* ... existing styles ... */
 }
 
+.fas.fa-arrow-down {
+  font-size: 5rem;  /* 50px converted to rem: 50/16 */
+  -webkit-text-stroke: 0.0625rem black;  /* 1px converted to rem: 1/16 */
+}
+
+.fa-arrow-down-left {
+  margin-right: 4rem;  /* 30px converted to rem: 30/16 */
+}
+
+.fa-arrow-down-right {
+  margin-left: 4rem;  /* 30px converted to rem: 30/16 */
+}
+
+.sample-mints-text {
+  color: white;
+  font-size: 3rem;  /* 24px converted to rem: 24/16 */
+  font-family: 'Spicy Rice', cursive;
+  margin-top: 0.1rem;  /* 80px converted to rem: 80/16 */
+  margin-bottom: 0.1rem;
+  text-align: center;
+}
+
+.iframe-container {
+    position: relative;
+    width: 60%;  /* Reduced from 100% to 60% to take up about 75% of the original space */
+    padding-bottom: 42.1875%;  /* Adjusted aspect ratio */
+    margin: 0 auto;  /* Centering the container horizontally */
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
 
 
     </style>
@@ -342,6 +354,26 @@ body {
     <img id="logo" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED.png" alt="Psychedelic Seasons Logo">
   </a>
   
+  
+  <!-- iFrame -->
+  <div class="iframe-container">
+    <iframe 
+        src="https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green"
+        frameborder="0"
+    >
+    </iframe>
+</div>
+
+
+<!-- Add this part above your Seasons grid -->
+<p class="sample-mints-text">
+  <i class="fas fa-arrow-down fa-arrow-down-left"></i> <!-- Left Down Arrow -->
+  Sample mints (refresh to see more):
+  <i class="fas fa-arrow-down fa-arrow-down-right"></i> <!-- Right Down Arrow -->
+</p>
+
+
+
 
   <!-- Seasons -->
 <div id="seasons">
@@ -350,18 +382,7 @@ body {
   <img id="autumn" class="no-right-click" loading="lazy" alt="A possible Autumn-themed NFT you can mint">
   <img id="winter" class="no-right-click" loading="lazy" alt="A possible Winter-themed NFT you can mint">
 </div>
-<p class="text-below-grid">
-  <i class="fas fa-arrow-up fa-arrow-up-left"></i>
-  You could possibly mint one of the
-  <span class="rainbow-container rainbow-block">
-    <span class="rainbow-text">
-      <span class="rainbow-emoji">🍄</span> Psychedelic Seasons <span class="rainbow-emoji">📅️</span>
-    </span>
-    <span class="rainbow-subtext larger-text">STILLS</span> <!-- Here the new class is applied -->
-  </span>
-  you see above (refresh to see more variations)
-  <i class="fas fa-arrow-up fa-arrow-up-right"></i>
-</p>
+
 
 
 
@@ -372,40 +393,13 @@ body {
             Your browser does not support the video tag.
         </video>
     </div>
-<p class="text-below-video">
-  <i class="fas fa-arrow-up fa-arrow-up-left"></i>
-  You could possibly mint one of the
-  <span class="rainbow-container rainbow-block">
-    <span class="rainbow-text">
-      <span class="rainbow-emoji">🍄</span> Psychedelic Seasons <span class="rainbow-emoji">📅️</span>
-    </span>
-    <span class="rainbow-subtext">ANIMATIONS</span>
-  </span>
-  you see above (refresh to see more variations)
-  <i class="fas fa-arrow-up fa-arrow-up-right"></i>
-</p>
 
 
-<!-- iFrame -->
-  <div id="center">
-      <iframe
-          src="https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green"
-          width="1000px"
-          height="1000px"
-          style="max-width:100%;"
-          frameborder="0"
-      ></iframe>
-  </div>
 
 
     <div id="links-wrapper">
     <div id="links">
-        <a href="https://psychedelicseasons.com" target="_blank" title="Psychedelic Seasons Mint">
-            <img class="logo-size logo-ps-seasons" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED.png" alt="Psychedelic Seasons Minting Logo">
-        </a>
-        <a href="https://opensea.io/NoBanksNearby" title="Psychedelic Seasons on OpenSea" target="_blank">
-            <img class="logo-wide logo-opensea-badge" src="https://storage.googleapis.com/psychedelic_seasons/OpenSea%20Badge%20FIXED.png" alt="Psychedelic Seasons on OpenSea">
-        </a>
+        
         <a href="https://opensea.io/NoBanksNearby" target="_blank" title="NoBanks Nearby on OpenSea">
             <img class="logo-size" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.png" alt="OpenSea Logo">
         </a>
