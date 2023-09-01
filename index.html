@@ -7,8 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:title" content="Psychedelic Seasons Mint Site" />
 	<meta property="og:description" content="Welcome to the Psychedelic Seasons Mint Site. Explore beautiful seasonal art." />
-	<meta property="og:image" content="your_image_url_here" />
-	<meta property="og:url" content="your_website_url_here" />
+	<meta property="og:image" content="https://example.com/your_image.jpg" />
+	<meta property="og:url" content="https://example.com" />
+
 
 
 
@@ -256,7 +257,38 @@
       .text-below-grid, .text-below-video {
         font-size: 1.8rem;
       }
+	  
+	  .logo-size.custom-dimensions {
+    width: 80px;
+    height: 80px;
+}
+
+/* Add to your existing stylesheet */
+.logo-size.custom-dimensions {
+    width: 80px;
+    height: 80px;
+}
+
+.logo-wide.custom-styles {
+    border-radius: 5px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+}
+ 
+ .logo-ps-seasons,
+.logo-foundation {
+    width: 80px;
+    height: 80px;
+}
+
+.logo-opensea-badge {
+    border-radius: 5px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+}
+ 
+	  
     }
+	
+	
 
 
 
@@ -332,26 +364,25 @@
 
 
     <div id="links-wrapper">
-        <div id="links">
-	
-            <a href="https://psychedelicseasons.com" target="_blank" title="Psychedelic Seasons Mint">
-    <img class="logo-size" style="width:80px; height:80px;" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED.png" alt="Psychedelic Seasons Minting Logo">
-</a>
-<a href="https://opensea.io/NoBanksNearby" title="Psychedelic Seasons on OpenSea" target="_blank">
-    <img class="logo-wide" style="border-radius:5px; box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);" src="https://storage.googleapis.com/psychedelic_seasons/OpenSea%20Badge%20FIXED.png" alt="Psychedelic Seasons on OpenSea" />
-</a>
-<a href="https://opensea.io/NoBanksNearby" target="_blank" title="NoBanks Nearby on OpenSea">
-    <img class="logo-size" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.png" alt="OpenSea Logo">
-</a>
-<a href="https://foundation.app/@NoBanksNearby" target="_blank" title="NoBanks Nearby on Foundation">
-    <img class="logo-size" style="width:80px; height:80px;" src="https://storage.googleapis.com/psychedelic_seasons/Foundation%20FND%20logo.png" alt="Foundation Logo">
-</a>
-<a href="https://twitter.com/NoBanksNearby" target="_blank" title="NoBanks Nearby on X">
-    <img class="logo-size" src="https://storage.googleapis.com/psychedelic_seasons/twitter-x-logo-0339F999CF-seeklogo.com-standard-scale-4_00x.png" alt="X Logo">
-</a>
-
-        </div>
+    <div id="links">
+        <a href="https://psychedelicseasons.com" target="_blank" title="Psychedelic Seasons Mint">
+            <img class="logo-size logo-ps-seasons" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED.png" alt="Psychedelic Seasons Minting Logo">
+        </a>
+        <a href="https://opensea.io/NoBanksNearby" title="Psychedelic Seasons on OpenSea" target="_blank">
+            <img class="logo-wide logo-opensea-badge" src="https://storage.googleapis.com/psychedelic_seasons/OpenSea%20Badge%20FIXED.png" alt="Psychedelic Seasons on OpenSea">
+        </a>
+        <a href="https://opensea.io/NoBanksNearby" target="_blank" title="NoBanks Nearby on OpenSea">
+            <img class="logo-size" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.png" alt="OpenSea Logo">
+        </a>
+        <a href="https://foundation.app/@NoBanksNearby" target="_blank" title="NoBanks Nearby on Foundation">
+            <img class="logo-size logo-foundation" src="https://storage.googleapis.com/psychedelic_seasons/Foundation%20FND%20logo.png" alt="Foundation Logo">
+        </a>
+        <a href="https://twitter.com/NoBanksNearby" target="_blank" title="NoBanks Nearby on X">
+            <img class="logo-size" src="https://storage.googleapis.com/psychedelic_seasons/twitter-x-logo-0339F999CF-seeklogo.com-standard-scale-4_00x.png" alt="X Logo">
+        </a>
     </div>
+</div>
+
 
     
     <!-- Your JavaScript code here -->
@@ -572,6 +603,11 @@ var videoSets = [
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
+		
+		videoElement.addEventListener('error', function() {
+    console.log("Error with video: ", videoElement.error);
+});
+		
     </script>
 </body>
 </html>
