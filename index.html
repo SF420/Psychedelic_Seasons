@@ -364,9 +364,31 @@ body {
   text-align: center;
 }
 
+/* Video Controls CSS */
+.video-control {
+    position: absolute;
+    bottom: 70%;  /* Add this line to move the button closer to the bottom */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+}
 
 
 
+.hidden {
+    display: none;
+}
+
+#video-container {
+    position: relative; /* So that the child elements can be positioned relative to this */
+    width: 70vw;
+    height: calc(70vw / 3);  /* 3:1 aspect ratio */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 
 
     </style>
@@ -419,12 +441,27 @@ body {
 
 
 <!-- Video Section -->
-    <div id="video-frame">
-        <video id="season-video" class="no-right-click" width="100%" height="23.333vw" autoplay muted loop>
+        <div id="video-frame">
+        <video id="season-video" class="no-right-click" width="100%" height="23.333vw">
             <source id="video-source" src="" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <div id="video-container"> <!-- New container -->
+    <video id="season-video" class="no-right-click" width="100%" height="23.333vw">
+        <source id="video-source" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Play button -->
+    <div id="play-button" class="video-control" onclick="togglePlayPause()">
+        <i class="fas fa-play"></i>
     </div>
+    <!-- Pause button -->
+    <div id="pause-button" class="video-control hidden" onclick="togglePlayPause()">
+        <i class="fas fa-pause"></i>
+    </div>
+</div>
+
+
 
 
 
@@ -661,6 +698,39 @@ var videoSets = [
 
         // Set the initial video
         setAndPlayVideo();
+		
+		// Function to toggle play and pause
+function togglePlayPause() {
+    var videoElement = document.getElementById("season-video");
+    var playButton = document.getElementById("play-button");
+    var pauseButton = document.getElementById("pause-button");
+
+    if (videoElement.paused) {
+        videoElement.play();
+        playButton.classList.add("hidden");
+        pauseButton.classList.remove("hidden");
+    } else {
+        videoElement.pause();
+        pauseButton.classList.add("hidden");
+        playButton.classList.remove("hidden");
+    }
+}
+
+// Event to show and hide pause button on hover
+document.getElementById("video-frame").addEventListener("mouseenter", function() {
+    var videoElement = document.getElementById("season-video");
+    var pauseButton = document.getElementById("pause-button");
+    
+    if (!videoElement.paused) {
+        pauseButton.classList.remove("hidden");
+    }
+});
+
+document.getElementById("video-frame").addEventListener("mouseleave", function() {
+    var pauseButton = document.getElementById("pause-button");
+    pauseButton.classList.add("hidden");
+});
+
 
         // Disable context menu (right-click menu)
         document.addEventListener('contextmenu', function (e) {
