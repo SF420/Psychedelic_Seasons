@@ -81,7 +81,7 @@
 
     #links {
         text-align: center;
-        margin-top: 10px;
+        margin-top: 50px;
 		margin-bottom: 70px;
     }
 
@@ -170,6 +170,7 @@
 #season-video {
       width: 100%;
       height: calc(70vw / 3);  /* 3:1 aspect ratio */
+	  touch-action: none;  /* Disable pinch zoom */
     }
 
 
@@ -366,14 +367,14 @@ body {
 
 /* Video Controls CSS */
 .video-control {
-    position: absolute;
-    bottom: 75%;  /* Add this line to move the button closer to the bottom */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* remove position: absolute; */
+    /* remove bottom: 75%; */
+    /* remove left: 50%; */
+    /* remove transform: translate(-50%, -50%); */
     font-size: 3rem;
     color: white;
     cursor: pointer;
-    z-index: 1;
+    /* remove z-index: 1; */
 }
 
 
@@ -389,6 +390,13 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#video-controls {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;  /* Add this line */
+}
+
 
 
     </style>
@@ -446,15 +454,19 @@ body {
         <source id="video-source" src="" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <!-- Play button -->
-    <div id="play-button" class="video-control" onclick="togglePlayPause()">
-        <i class="fas fa-play"></i>
-    </div>
-    <!-- Pause button -->
-    <div id="pause-button" class="video-control hidden" onclick="togglePlayPause()">
-        <i class="fas fa-pause"></i>
+    <!-- Play and Pause button container -->
+    <div id="video-controls">
+        <!-- Play button -->
+        <div id="play-button" class="video-control" onclick="togglePlayPause()">
+            <i class="fas fa-play"></i>
+        </div>
+        <!-- Pause button -->
+        <div id="pause-button" class="video-control hidden" onclick="togglePlayPause()">
+            <i class="fas fa-pause"></i>
+        </div>
     </div>
 </div>
+
 
 
 
@@ -482,12 +494,11 @@ body {
     
     <!-- JavaScript Code -->
     <script>
-	
-	 // Handle JavaScript errors
+
+        // Handle JavaScript errors
         window.onerror = function (message, url, lineNumber) {
             console.log("Error: " + message + " in " + url + " at line " + lineNumber);
         };
-       
 
         // Function to get a random item from an array
         function getRandomItem(arr) {
@@ -500,7 +511,7 @@ body {
             element.src = "fallback_image_url_here";
         }
 
-        // Preload and set images
+        // Function to preload and set images
         function preloadAndSetImage(elementId, imgAr) {
             var imgSrc = getRandomItem(imgAr);
             var imgElement = document.getElementById(elementId);
@@ -672,6 +683,21 @@ body {
         preloadAndSetImage('summer', summerImages);
         preloadAndSetImage('autumn', autumnImages);
         preloadAndSetImage('winter', winterImages);
+		
+		 // Function to handle video errors
+        function videoError(element) {
+            element.src = "fallback_video_url_here";
+        }
+
+        // Function to preload and set video
+        function preloadAndSetVideo(elementId, videoAr) {
+            var videoSrc = getRandomItem(videoAr);
+            var videoElement = document.getElementById(elementId);
+            videoElement.src = videoSrc;
+            videoElement.onerror = function() {
+                videoError(videoElement);
+            };
+        }
 
     // Initialize array for sets of videos with the URLs of the video files
 var videoSets = [
@@ -684,22 +710,7 @@ var videoSets = [
   // Add more video URLs here when you have them
 ];
 
-document.querySelector("#playButton").addEventListener("click", function() {
-    document.querySelector("#myVideo").play();
-});
-
-// Complete the event listener for contextmenu
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-}, false);
-
-// Capture all available error info
-window.onerror = function (message, source, lineno, colno, error) {
-    console.log(`Error: ${message}\nSource: ${source}\nLine: ${lineno}\nColumn: ${colno}\nError object: ${error}`);
-};
-
-
- // Function to set the video source and play the video
+// Function to set the video source and play the video
         function setAndPlayVideo() {
             var videoElement = document.getElementById("season-video");
             var videoSource = document.getElementById("video-source");
@@ -710,39 +721,38 @@ window.onerror = function (message, source, lineno, colno, error) {
 
         // Set the initial video
         setAndPlayVideo();
-		
-		// Function to toggle play and pause
-function togglePlayPause() {
-    var videoElement = document.getElementById("season-video");
-    var playButton = document.getElementById("play-button");
-    var pauseButton = document.getElementById("pause-button");
 
-    if (videoElement.paused) {
-        videoElement.play();
-        playButton.classList.add("hidden");
-        pauseButton.classList.remove("hidden");
-    } else {
-        videoElement.pause();
-        pauseButton.classList.add("hidden");
-        playButton.classList.remove("hidden");
-    }
-}
+        // Function to toggle play and pause
+        function togglePlayPause() {
+            var videoElement = document.getElementById("season-video");
+            var playButton = document.getElementById("play-button");
+            var pauseButton = document.getElementById("pause-button");
 
-// Event to show and hide pause button on hover
-document.getElementById("video-frame").addEventListener("mouseenter", function() {
-    var videoElement = document.getElementById("season-video");
-    var pauseButton = document.getElementById("pause-button");
-    
-    if (!videoElement.paused) {
-        pauseButton.classList.remove("hidden");
-    }
-});
+            if (videoElement.paused) {
+                videoElement.play();
+                playButton.classList.add("hidden");
+                pauseButton.classList.remove("hidden");
+            } else {
+                videoElement.pause();
+                pauseButton.classList.add("hidden");
+                playButton.classList.remove("hidden");
+            }
+        }
 
-document.getElementById("video-frame").addEventListener("mouseleave", function() {
-    var pauseButton = document.getElementById("pause-button");
-    pauseButton.classList.add("hidden");
-});
+        // Event to show and hide pause button on hover
+        document.getElementById("video-frame").addEventListener("mouseenter", function() {
+            var videoElement = document.getElementById("season-video");
+            var pauseButton = document.getElementById("pause-button");
 
+            if (!videoElement.paused) {
+                pauseButton.classList.remove("hidden");
+            }
+        });
+
+        document.getElementById("video-frame").addEventListener("mouseleave", function() {
+            var pauseButton = document.getElementById("pause-button");
+            pauseButton.classList.add("hidden");
+        });
 
         // Disable context menu (right-click menu)
         document.addEventListener('contextmenu', function (e) {
@@ -755,11 +765,12 @@ document.getElementById("video-frame").addEventListener("mouseleave", function()
             console.log("Error with video: ", videoElement.error);
         });
 
-        // ... after setting the initial video
+        // Play the initial video after the document has loaded
         document.addEventListener('DOMContentLoaded', (event) => {
             var videoElement = document.getElementById("season-video");
             videoElement.play();
         });
+
     </script>
 </body>
 </html>
