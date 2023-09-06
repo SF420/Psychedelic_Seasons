@@ -1,0 +1,423 @@
+@media only screen and (max-width: 768px) {
+  .logo-mobile {
+    height: 3.35rem !important;
+    top: 2px !important;
+  }
+
+  .connect-wallet {
+    font-size: 1.5rem !important;
+  }
+
+  .sample-mints-text {
+    font-size: 1.5rem !important;
+  }
+
+  .fa-arrow-down-left,
+  .fa-arrow-down-right {
+    display: none !important;
+  }
+}
+
+:root {
+  --text-color: white;
+  --text-center: center;
+  --no-wrap: nowrap;
+  --hidden-overflow: hidden;
+  --ellipsis: ellipsis;
+  --default-font: "Spicy Rice", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#logo {
+  height: 7.5rem; /* Updated */
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 25px 0 5px 0; /* Reduced the bottom margin to 5px */
+}
+
+/*#play-button {
+  display: none;*/
+}
+
+#seasons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 70vw;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+#spring,
+#autumn,
+#winter,
+#summer {
+  width: 35vw; /* Update this line */
+  height: calc(35vw * 0.3361344537815126); /* Update this line */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#links-wrapper {
+  padding: 10px 0 0 0;
+  width: 100%;
+  background-color: black;
+}
+
+#links {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+#links a {
+  margin: 0 10px;
+  text-decoration: none; /* No underline */
+  outline: none;
+}
+
+#links a:hover {
+  color: #f00;
+}
+
+/* CSS class for equal size logo */
+.logo-size {
+  width: auto; /* Maintain the aspect ratio */
+  height: 60px; /* Or whatever size you want */
+  margin-right: 25px;
+  margin-left: 25px;
+  vertical-align: middle; /* Added */
+}
+
+.logo-wide {
+  width: 169px; /* Maintain the aspect ratio */
+  height: 60px; /* Or whatever size you want */
+  margin-right: 25px;
+  margin-left: 25px;
+  vertical-align: middle; /* Added */
+}
+
+#opensea-badge,
+#first-logo {
+  width: auto;
+  height: auto;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://storage.googleapis.com/psychedelic_seasons/seamlesscheck%20Psychedelic%20Seasons%201.png");
+  background-repeat: repeat;
+  background-size: 1000px 1000px;
+  width: 100%;
+}
+
+/* This will apply to the div that wraps the iframe */
+.iframe-container {
+  position: relative;
+  overflow: hidden; /* This will hide the scrollbars */
+  width: 100%;
+  padding-top: 42.1875%; /* Adjust this value for the aspect ratio you want */
+  margin: 0 auto; /* Center the container */
+  margin-bottom: 50px;
+}
+
+/* This will apply to iframes inside .iframe-container */
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  touch-action: none; /* Disable pinch zoom */
+}
+
+/* This will apply to standalone iframes */
+.standalone-iframe {
+  margin: 50px auto;
+  width: 50%;
+  height: 50%;
+  border: none;
+  touch-action: none; /* Disable pinch zoom */
+}
+
+#video-frame {
+  width: 70vw;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#season-video {
+  width: 100%;
+  height: calc(70vw / 3); /* 3:1 aspect ratio */
+  touch-action: none; /* Disable pinch zoom */
+}
+
+.video-dimensions {
+  width: 100%; /* adjust as needed */
+  height: auto; /* adjust as needed */
+}
+
+/* Utility Classes */
+.u-text-center {
+  text-align: center;
+}
+
+.u-white-space-nowrap {
+  white-space: nowrap;
+}
+
+.u-overflow-hidden {
+  overflow: hidden;
+}
+
+.u-text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+/* Added new style to disable right-click */
+.no-right-click {
+  pointer-events: none;
+}
+
+.rainbow-container {
+  display: inline-block;
+  text-align: center;
+}
+
+/* Style for the main text */
+.rainbow-text {
+  display: inline;
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow-animation 5s infinite linear;
+  vertical-align: middle; /* Add this line */
+}
+
+/* Style for the subtext */
+.rainbow-subtext {
+  display: block; /* Change from inline to block */
+  text-align: center; /* Center align the text */
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow-animation 5s infinite linear;
+  vertical-align: middle; /* Add this line */
+}
+
+/* Style for the emoji */
+.rainbow-emoji {
+  display: inline;
+  color: white;
+  vertical-align: middle; /* Add this line */
+}
+
+/* New class to center the block of text and emojis */
+.rainbow-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+@keyframes rainbow-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Specific class to make the text larger */
+.larger-text {
+  font-size: 1.3em;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 480px) {
+  /* Increase logo size */
+  #logo {
+    height: 10rem;
+  }
+
+  /* Increase seasons grid */
+  #seasons {
+    width: 100vw;
+  }
+
+  /* Adjust individual season size */
+  #spring,
+  #autumn,
+  #winter,
+  #summer {
+    width: calc(50vw - 10px);
+    height: calc((50vw - 10px) * 0.3361344537815126);
+  }
+
+  /* Increase text size below grid and video */
+  .text-below-grid,
+  .text-below-video {
+    font-size: 1.8rem;
+  }
+
+  /* Adjust video frame size */
+  #video-frame {
+    width: 100vw;
+  }
+
+  #season-video {
+    height: calc(100vw / 3);
+  }
+
+  /* Increase font size for arrows and sample mints text */
+  .fas.fa-arrow-down {
+    font-size: 7rem;
+  }
+
+  .sample-mints-text {
+    font-size: 4rem;
+  }
+
+  /* Increase iframe size */
+  .iframe-container {
+    width: 90%;
+    padding-bottom: 56.25%;
+  }
+}
+
+/* Add to your existing stylesheet */
+.logo-size.custom-dimensions {
+  vertical-align: middle;
+  width: 80px;
+  height: 80px;
+}
+
+.logo-wide.custom-styles {
+  border-radius: 5px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+.logo-ps-seasons,
+.logo-foundation {
+  width: 120px;
+  height: 120px;
+  vertical-align: middle;
+}
+
+.logo-opensea-badge {
+  border-radius: 5px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+  vertical-align: middle;
+}
+
+/* Disable pinch zoom for iframe */
+iframe {
+  touch-action: none;
+}
+
+/* Disable pinch zoom for video */
+video {
+  touch-action: none;
+}
+
+/* Improve scrolling and tap behavior for the body */
+body {
+  touch-action: manipulation;
+  /* ... existing styles ... */
+}
+
+.fas.fa-arrow-down {
+  font-size: 5rem; /* 50px converted to rem: 50/16 */
+  -webkit-text-stroke: 0.0625rem black; /* 1px converted to rem: 1/16 */
+}
+
+.fa-arrow-down-left {
+  margin-right: 4rem; /* 30px converted to rem: 30/16 */
+}
+
+.fa-arrow-down-right {
+  margin-left: 4rem; /* 30px converted to rem: 30/16 */
+}
+
+.sample-mints-text {
+  color: white;
+  font-size: 3rem; /* 24px converted to rem: 24/16 */
+  font-family: "Spicy Rice", cursive;
+  margin-top: 0.1rem; /* 80px converted to rem: 80/16 */
+  margin-bottom: 0.1rem;
+  text-align: center;
+}
+
+/* Video Controls CSS */
+.video-control {
+  /* remove position: absolute; */
+  /* remove bottom: 75%; */
+  /* remove left: 50%; */
+  /* remove transform: translate(-50%, -50%); */
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  /* remove z-index: 1; */
+}
+
+.hidden {
+  display: none;
+}
+
+#video-container {
+  position: relative; /* So that the child elements can be positioned relative to this */
+  width: 70vw;
+  height: calc(70vw / 3); /* 3:1 aspect ratio */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#video-controls {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px; /* Add this line */
+}
+
+.video-dimensions {
+  width: 100%;
+  height: 23.333vw;
+}

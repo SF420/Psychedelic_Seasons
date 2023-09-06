@@ -1,797 +1,163 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- Add lang attribute -->
-<head>
-
-    <!-- Metadata for the site -->
+<html lang="en">
+  <head>
     <title>Psychedelic Seasons Mint Site</title>
-    <meta name="description" content="Welcome to the Psychedelic Seasons Mint Site. Explore beautiful seasonal art.">
-    <meta name="keywords" content="Psychedelic, Seasons, Art, Mint">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:title" content="Psychedelic Seasons Mint Site" >
-	<meta property="og:description" content="Welcome to the Psychedelic Seasons Mint Site. Explore beautiful seasonal art." >
-	<meta property="og:image" content="https://example.com/your_image.jpg" >
-	<meta property="og:url" content="https://example.com" >
 
-
-
-
-    <!-- Video.js CSS and JS files -->
-    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" >
-    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
-    
-	<!-- Custom CSS -->
-	<style>
-	/* Commonly used variables */
-    :root {
-        --text-color: white;
-        --text-center: center;
-        --no-wrap: nowrap;
-        --hidden-overflow: hidden;
-        --ellipsis: ellipsis;
-        --default-font: 'Spicy Rice', cursive;
-    }
-	
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        width: 100%;
-    }
-
-    #logo {
-        height: 7.5rem;  /* Updated */
-        background-repeat: no-repeat;
-        background-position: center;
-        margin: 25px 0 5px 0; /* Reduced the bottom margin to 5px */
-    }
-
-    #seasons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 70vw;
-  margin-bottom: 50px;
-  margin-top: 30px;
-}
-
-#spring, #autumn, #winter, #summer {
-  width: 35vw;  /* Update this line */
-  height: calc(35vw * 0.3361344537815126);  /* Update this line */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-
-
-    #links-wrapper {
-        padding: 10px 0 0 0;
-        width: 100%;
-        background-color: black;
-    }
-
-    #links {
-        text-align: center;
-        margin-top: 50px;
-		margin-bottom: 70px;
-    }
-
-    #links a {
-        margin: 0 10px;
-        text-decoration: none; /* No underline */
-        outline: none;
-    }
-
-    #links a:hover {
-        color: #f00;
-    }
-
-    /* CSS class for equal size logo */
-.logo-size {
-    width: auto; /* Maintain the aspect ratio */
-    height: 60px; /* Or whatever size you want */
-    margin-right: 25px;
-    margin-left: 25px;
-	vertical-align: middle;  /* Added */
-}
-
-.logo-wide {
-    width: 169px; /* Maintain the aspect ratio */
-    height: 60px; /* Or whatever size you want */
-    margin-right: 25px;
-    margin-left: 25px;
-	vertical-align: middle;  /* Added */
-}
-
-
-
-    #opensea-badge, #first-logo {
-        width: auto;
-        height: auto;
-    }
-
-    #center {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-image: url('https://storage.googleapis.com/psychedelic_seasons/seamlesscheck%20Psychedelic%20Seasons%201.png');
-        background-repeat: repeat;
-        background-size: 1000px 1000px;
-        width: 100%;
-    }
-
- /* This will apply to the div that wraps the iframe */
-.iframe-container {
-    position: relative;
-    overflow: hidden; /* This will hide the scrollbars */
-    width: 100%;
-    padding-top: 42.1875%; /* Adjust this value for the aspect ratio you want */
-    margin: 0 auto;  /* Center the container */
-}
-
-/* This will apply to iframes inside .iframe-container */
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    touch-action: none;  /* Disable pinch zoom */
-}
-
-/* This will apply to standalone iframes */
-.standalone-iframe {
-    margin: 50px auto;
-    width: 50%;
-    height: 50%;
-    border: none;
-    touch-action: none;  /* Disable pinch zoom */
-}
-
-
-	
-	#video-frame {
-      width: 70vw;
-	  margin-top: 10px;
-	margin-bottom: 20px;
-    }
-
-
-#season-video {
-      width: 100%;
-      height: calc(70vw / 3);  /* 3:1 aspect ratio */
-	  touch-action: none;  /* Disable pinch zoom */
-    }
-
-
-/* Utility Classes */
-.u-text-center {
-    text-align: center;
-}
-
-.u-white-space-nowrap {
-    white-space: nowrap;
-}
-
-.u-overflow-hidden {
-    overflow: hidden;
-}
-
-.u-text-ellipsis {
-    text-overflow: ellipsis;
-}
-
-/* Added new style to disable right-click */
-.no-right-click {
-  pointer-events: none;
-}
-
-
-.rainbow-container {
-  display: inline-block;
-  text-align: center;
-}
-
-
-/* Style for the main text */
-.rainbow-text {
-  display: inline;
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: rainbow-animation 5s infinite linear;
-  vertical-align: middle;  /* Add this line */
-}
-
-/* Style for the subtext */
-.rainbow-subtext {
-  display: block;  /* Change from inline to block */
-  text-align: center; /* Center align the text */
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: rainbow-animation 5s infinite linear;
-  vertical-align: middle;  /* Add this line */
-}
-
-/* Style for the emoji */
-.rainbow-emoji {
-  display: inline;
-  color: white;
-  vertical-align: middle;  /* Add this line */
-}
-
-
-/* New class to center the block of text and emojis */
-.rainbow-block {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
-
-@keyframes rainbow-animation {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-/* Specific class to make the text larger */
-.larger-text {
-  font-size: 1.3em;
-}
-
-/* Media Query for Mobile */
-@media (max-width: 480px) {
-  /* Increase logo size */
-  #logo {
-    height: 10rem;
-  }
-
-  /* Increase seasons grid */
-  #seasons {
-    width: 100vw;
-  }
-
-  /* Adjust individual season size */
-  #spring, #autumn, #winter, #summer {
-    width: calc(50vw - 10px);
-    height: calc((50vw - 10px) * 0.3361344537815126);
-  }
-
-  /* Increase text size below grid and video */
-  .text-below-grid, .text-below-video {
-    font-size: 1.8rem;
-  }
-
-  /* Adjust video frame size */
-  #video-frame {
-    width: 100vw;
-  }
-  
-  #season-video {
-    height: calc(100vw / 3);
-  }
-  
-  /* Increase font size for arrows and sample mints text */
-  .fas.fa-arrow-down {
-    font-size: 7rem;
-  }
-
-  .sample-mints-text {
-    font-size: 4rem;
-  }
-
-  /* Increase iframe size */
-  .iframe-container {
-    width: 90%;
-    padding-bottom: 56.25%;
-  }
-}
-
-
-
-/* Add to your existing stylesheet */
-.logo-size.custom-dimensions {
-vertical-align: middle;
-    width: 80px;
-    height: 80px;
-}
-
-.logo-wide.custom-styles {
-    border-radius: 5px;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
-}
- 
- .logo-ps-seasons,
-.logo-foundation {
-    width: 120px;
-    height: 120px;
-	vertical-align: middle;
-}
-
-.logo-opensea-badge {
-    border-radius: 5px;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
-	vertical-align: middle;
-}
-
-/* Disable pinch zoom for iframe */
-        iframe {
-            touch-action: none;
-        }
-
-        /* Disable pinch zoom for video */
-        video {
-            touch-action: none;
-        }
-	
-	/* Improve scrolling and tap behavior for the body */
-body {
-  touch-action: manipulation;
-  /* ... existing styles ... */
-}
-
-.fas.fa-arrow-down {
-  font-size: 5rem;  /* 50px converted to rem: 50/16 */
-  -webkit-text-stroke: 0.0625rem black;  /* 1px converted to rem: 1/16 */
-}
-
-.fa-arrow-down-left {
-  margin-right: 4rem;  /* 30px converted to rem: 30/16 */
-}
-
-.fa-arrow-down-right {
-  margin-left: 4rem;  /* 30px converted to rem: 30/16 */
-}
-
-.sample-mints-text {
-  color: white;
-  font-size: 3rem;  /* 24px converted to rem: 24/16 */
-  font-family: 'Spicy Rice', cursive;
-  margin-top: 0.1rem;  /* 80px converted to rem: 80/16 */
-  margin-bottom: 0.1rem;
-  text-align: center;
-}
-
-/* Video Controls CSS */
-.video-control {
-    /* remove position: absolute; */
-    /* remove bottom: 75%; */
-    /* remove left: 50%; */
-    /* remove transform: translate(-50%, -50%); */
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    /* remove z-index: 1; */
-}
-
-
-
-.hidden {
-    display: none;
-}
-
-#video-container {
-    position: relative; /* So that the child elements can be positioned relative to this */
-    width: 70vw;
-    height: calc(70vw / 3);  /* 3:1 aspect ratio */
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#video-controls {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 50px;  /* Add this line */
-}
-
-.video-dimensions {
-    width: 100%;
-    height: 23.333vw;
-}
-
-
-    </style>
-	
-	
-	<!-- Fonts and Icons -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-
-  <!-- Logo Section -->
-  <a href="https://psychedelicseasons.com" target="_blank" title="Psychedelic Seasons Mint" aria-label="Visit Psychedelic Seasons Mint site, opens in new tab">
-    <img id="logo" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED%20(smaller).webp" alt="Psychedelic Seasons Logo">
-  </a>
-  
-  
-   <!-- iFrame Placeholder -->
-<div id="iframe-placeholder" class="iframe-container"></div>
-
-
-
-<!-- Sample Mints Section -->
-<p class="sample-mints-text">
-  <i class="fas fa-arrow-down fa-arrow-down-left"></i> <!-- Left Down Arrow -->
-  Sample mints (refresh to see more):
-  <i class="fas fa-arrow-down fa-arrow-down-right"></i> <!-- Right Down Arrow -->
-</p>
-
-
-
-
-  <!-- Seasons Grid -->
-<div id="seasons">
-  <img id="spring" class="no-right-click" loading="lazy" alt="A possible Spring-themed NFT you can mint" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED%20(smaller).webp.jpg">
-<img id="summer" class="no-right-click" loading="lazy" alt="A possible Summer-themed NFT you can mint" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED%20(smaller).webp">
-<img id="autumn" class="no-right-click" loading="lazy" alt="A possible Autumn-themed NFT you can mint" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED%20(smaller).webp">
-<img id="winter" class="no-right-click" loading="lazy" alt="A possible Winter-themed NFT you can mint" src="https://storage.googleapis.com/psychedelic_seasons/Psychedelic%20Seasons%20-%204%20seasons%20logo%20FIXED%20(smaller).webp">
-
-</div>
-
-
-
-
-<!-- Video Section -->
-<div id="video-frame">
-    <video id="season-video" class="no-right-click video-dimensions" loop>
-        <source id="video-source" src="https://storage.googleapis.com/psychedelic_seasons/Video%20Placeholder.mp4" type="video/mp4">
+    <meta
+      name="description"
+      content="Welcome to the Psychedelic Seasons Mint Site. Explore beautiful seasonal art."
+    />
+    <meta name="keywords" content="Psychedelic, Seasons, Art, Mint" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Psychedelic Seasons Mint Site" />
+    <meta
+      property="og:description"
+      content="Welcome to the Psychedelic Seasons Mint Site. Explore beautiful seasonal art."
+    />
+    <meta property="og:image" content="assets/img/logos/ps-4-seasons.webp" />
+    <meta property="og:url" content="https://psychedelicseasons.com/" />
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Logo Section -->
+    <a
+      href="https://psychedelicseasons.com"
+      target="_blank"
+      title="Psychedelic Seasons Mint"
+      aria-label="Visit Psychedelic Seasons Mint site, opens in new tab"
+    >
+      <img
+        id="logo"
+        class="logo-mobile"
+        src="assets/img/logos/ps-4-seasons.webp"
+        alt="Psychedelic Seasons Logo"
+      />
+    </a>
+
+    <div class="iframe-container">
+      <iframe
+        src="https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green"
+        title="Psychedelic Seasons Minting Section"
+      >
+      </iframe>
+    </div>
+
+    <p class="sample-mints-text">
+      <i class="fas fa-arrow-down fa-arrow-down-left"></i>
+      Sample mints (refresh to see more):
+      <i class="fas fa-arrow-down fa-arrow-down-right"></i>
+    </p>
+
+    <div id="seasons">
+      <img
+        id="spring"
+        class="no-right-click"
+        loading="lazy"
+        alt="A possible Spring-themed NFT you can mint"
+        src="assets/img/logos/ps-4-seasons.webp"
+      />
+      <img
+        id="summer"
+        class="no-right-click"
+        loading="lazy"
+        alt="A possible Summer-themed NFT you can mint"
+        src="assets/img/logos/ps-4-seasons.webp"
+      />
+      <img
+        id="autumn"
+        class="no-right-click"
+        loading="lazy"
+        alt="A possible Autumn-themed NFT you can mint"
+        src="assets/img/logos/ps-4-seasons.webp"
+      />
+      <img
+        id="winter"
+        class="no-right-click"
+        loading="lazy"
+        alt="A possible Winter-themed NFT you can mint"
+        src="assets/img/logos/ps-4-seasons.webp"
+      />
+    </div>
+
+    <div id="video-frame">
+      <video
+        id="season-video"
+        class="no-right-click video-dimensions"
+        loop
+        autoplay
+      >
+        <source
+          id="video-source"
+          src="assets/vids/placeholder.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
-    </video>
-    <!-- Play and Pause button container -->
-    <div id="video-controls">
-        <!-- Play button -->
+      </video>
+      <div id="video-controls">
         <div id="play-button" class="video-control" onclick="togglePlayPause()">
-            <i class="fas fa-play"></i>
+          <i class="fas fa-play"></i>
         </div>
-        <!-- Pause button -->
-        <div id="pause-button" class="video-control hidden" onclick="togglePlayPause()">
-            <i class="fas fa-pause"></i>
+
+        <div
+          id="pause-button"
+          class="video-control hidden"
+          onclick="togglePlayPause()"
+        >
+          <i class="fas fa-pause"></i>
         </div>
+      </div>
     </div>
-</div>
 
-
-
-
-
-
-
-
-
-<!-- Links Section -->
-<div id="links-wrapper">
-    <div id="links">
-        
-        <a href="https://opensea.io/NoBanksNearby" target="_blank" title="NoBanks Nearby on OpenSea">
-            <img class="logo-size" src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.png" alt="OpenSea Logo">
+    <div id="links-wrapper" class="links-wrapper">
+      <div id="links">
+        <a
+          href="https://opensea.io/NoBanksNearby"
+          target="_blank"
+          title="NoBanks Nearby on OpenSea"
+        >
+          <img
+            class="logo-size"
+            src="https://storage.googleapis.com/opensea-static/Logomark/Logomark-Blue.png"
+            alt="OpenSea Logo"
+          />
         </a>
-        <a href="https://foundation.app/@NoBanksNearby" target="_blank" title="NoBanks Nearby on Foundation">
-            <img class="logo-size logo-foundation" src="https://storage.googleapis.com/psychedelic_seasons/Foundation%20FND%20logo.png" alt="Foundation Logo">
+        <a
+          href="https://foundation.app/@NoBanksNearby"
+          target="_blank"
+          title="NoBanks Nearby on Foundation"
+        >
+          <img
+            class="logo-size logo-foundation"
+            src="https://storage.googleapis.com/psychedelic_seasons/Foundation%20FND%20logo.png"
+            alt="Foundation Logo"
+          />
         </a>
-        <a href="https://twitter.com/NoBanksNearby" target="_blank" title="NoBanks Nearby on X">
-            <img class="logo-size" src="https://storage.googleapis.com/psychedelic_seasons/Twitter%20X%20Logo.webp" alt="X Logo">
+        <a
+          href="https://twitter.com/NoBanksNearby"
+          target="_blank"
+          title="NoBanks Nearby on X"
+        >
+          <img
+            class="logo-size"
+            src="https://storage.googleapis.com/psychedelic_seasons/Twitter%20X%20Logo.webp"
+            alt="X Logo"
+          />
         </a>
+      </div>
     </div>
-</div>
 
-
-    
-    <!-- JavaScript Code -->
-    <script>
-
-        // Handle JavaScript errors
-        window.onerror = function (message, url, lineNumber) {
-            console.log("Error: " + message + " in " + url + " at line " + lineNumber);
-        };
-
-        // Function to get a random item from an array
-        function getRandomItem(arr) {
-            var num = Math.floor(Math.random() * arr.length);
-            return arr[num];
-        }
-
-        // Function to handle image errors
-        function imageError(element) {
-            element.src = "fallback_image_url_here";
-        }
-
-        // Function to preload and set images
-        function preloadAndSetImage(elementId, imgAr) {
-            var imgSrc = getRandomItem(imgAr);
-            var imgElement = document.getElementById(elementId);
-            imgElement.src = imgSrc;
-            imgElement.onerror = function() {
-                imageError(imgElement);
-            };
-        }
-	
-        // Initialize an array for each season with the URLs of the images
-        var springImages = [
-            "https://storage.googleapis.com/psychedelic_seasons/SPRING%201.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%202.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%203.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%204.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%205.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%206.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%207.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%208.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%209.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2010.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2011.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2012.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2013.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2014.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2015.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2016.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2017.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2018.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2019.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2020.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2021.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2022.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2023.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2024.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2025.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2026.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2027.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2028.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2029.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2030.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2031.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2032.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2033.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2034.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2035.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SPRING%2036.webp"
-        ];
-
-        var summerImages = [
-            "https://storage.googleapis.com/psychedelic_seasons/SUMMER%201.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%202.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%203.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%204.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%205.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%206.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%207.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%208.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%209.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2010.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2011.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2012.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2013.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2014.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2015.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2016.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2017.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2018.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2019.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2020.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2021.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2022.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2023.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2024.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2025.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2026.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2027.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2028.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2029.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2030.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2031.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2032.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2033.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2034.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2035.webp",
-"https://storage.googleapis.com/psychedelic_seasons/SUMMER%2036.webp"
-        ];
-
-        var autumnImages = [
-           "https://storage.googleapis.com/psychedelic_seasons/AUTUMN%201.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%202.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%203.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%204.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%205.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%206.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%207.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%208.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%209.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2010.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2011.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2012.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2013.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2014.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2015.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2016.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2017.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2018.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2019.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2020.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2021.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2022.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2023.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2024.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2025.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2026.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2027.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2028.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2029.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2030.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2031.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2032.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2033.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2034.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2035.webp",
-"https://storage.googleapis.com/psychedelic_seasons/AUTUMN%2036.webp"
-        ];
-
-        var winterImages = [
-            "https://storage.googleapis.com/psychedelic_seasons/WINTER%201.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%202.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%203.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%204.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%205.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%206.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%207.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%208.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%209.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2010.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2011.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2012.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2013.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2014.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2015.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2016.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2017.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2018.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2019.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2020.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2021.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2022.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2023.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2024.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2025.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2026.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2027.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2028.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2029.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2030.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2031.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2032.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2033.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2034.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2035.webp",
-"https://storage.googleapis.com/psychedelic_seasons/WINTER%2036.webp"
-        ];
-		
-	// Preload and set images for each season
-        preloadAndSetImage('spring', springImages);
-        preloadAndSetImage('summer', summerImages);
-        preloadAndSetImage('autumn', autumnImages);
-        preloadAndSetImage('winter', winterImages);
-		
-		 // Function to handle video errors
-        function videoError(element) {
-            element.src = "fallback_video_url_here";
-        }
-
-        // Function to preload and set video
-        function preloadAndSetVideo(elementId, videoAr) {
-            var videoSrc = getRandomItem(videoAr);
-            var videoElement = document.getElementById(elementId);
-            videoElement.src = videoSrc;
-            videoElement.onerror = function() {
-                videoError(videoElement);
-            };
-        }
-
-    // Initialize array for sets of videos with the URLs of the video files
-var videoSets = [
-  "https://storage.googleapis.com/psychedelic_seasons/SPRING%201.mp4",
-  "https://storage.googleapis.com/psychedelic_seasons/AUTUMN%201.mp4",
-  "https://storage.googleapis.com/psychedelic_seasons/AUTUMN%202.mp4",
-  "https://storage.googleapis.com/psychedelic_seasons/SPRING%202.mp4",
-  "https://storage.googleapis.com/psychedelic_seasons/Summer%204.mp4",
-  "https://storage.googleapis.com/psychedelic_seasons/Summer%202.mp4"
-  // Add more video URLs here when you have them
-];
-
-// Function to set the video source and play the video
-        function setAndPlayVideo() {
-            var videoElement = document.getElementById("season-video");
-            var videoSource = document.getElementById("video-source");
-            videoSource.src = getRandomItem(videoSets);
-            videoElement.load();
-            videoElement.play();
-        }
-
-        // Set the initial video
-        setAndPlayVideo();
-
-        // Function to toggle play and pause
-        function togglePlayPause() {
-            var videoElement = document.getElementById("season-video");
-            var playButton = document.getElementById("play-button");
-            var pauseButton = document.getElementById("pause-button");
-
-            if (videoElement.paused) {
-                videoElement.play();
-                playButton.classList.add("hidden");
-                pauseButton.classList.remove("hidden");
-            } else {
-                videoElement.pause();
-                pauseButton.classList.add("hidden");
-                playButton.classList.remove("hidden");
-            }
-        }
-
-        // Event to show and hide pause button on hover
-        document.getElementById("video-frame").addEventListener("mouseenter", function() {
-            var videoElement = document.getElementById("season-video");
-            var pauseButton = document.getElementById("pause-button");
-
-            if (!videoElement.paused) {
-                pauseButton.classList.remove("hidden");
-            }
-        });
-
-        document.getElementById("video-frame").addEventListener("mouseleave", function() {
-            var pauseButton = document.getElementById("pause-button");
-            pauseButton.classList.add("hidden");
-        });
-
-        // Disable context menu (right-click menu)
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-
-        // Attach error listener to videoElement
-        var videoElement = document.getElementById("season-video");
-        videoElement.addEventListener('error', function () {
-            console.log("Error with video: ", videoElement.error);
-        });
-
-        // Play the initial video after the document has loaded
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var videoElement = document.getElementById("season-video");
-            videoElement.play();
-        });
-		
-		// Lazy-Load iFrame
-document.addEventListener("scroll", function() {
-    var placeholder = document.getElementById("iframe-placeholder");
-    var rect = placeholder.getBoundingClientRect();
-
-    if(rect.top <= window.innerHeight) {
-        // User has scrolled to the placeholder, inject the iframe
-        var iframe = document.createElement("iframe");
-        iframe.src = "https://embed.ipfscdn.io/ipfs/bafybeihazpt6pkm4azgtupdz7hc2j3o4zpjsvtcgfq4t2keozxkss3ud6q/?contract=0xd9D2c2A34418d14c2EFc97eBBf4b977A774e935F&chain=%7B%22name%22%3A%22Goerli%22%2C%22chain%22%3A%22ETH%22%2C%22rpc%22%3A%5B%22https%3A%2F%2Fgoerli.rpc.thirdweb.com%2F%24%7BTHIRDWEB_API_KEY%7D%22%5D%2C%22nativeCurrency%22%3A%7B%22name%22%3A%22Goerli+Ether%22%2C%22symbol%22%3A%22ETH%22%2C%22decimals%22%3A18%7D%2C%22shortName%22%3A%22gor%22%2C%22chainId%22%3A5%2C%22testnet%22%3Atrue%2C%22slug%22%3A%22goerli%22%2C%22icon%22%3A%7B%22url%22%3A%22ipfs%3A%2F%2FQmcxZHpyJa8T4i63xqjPYrZ6tKrt55tZJpbXcjSDKuKaf9%2Fethereum%2F512.png%22%2C%22height%22%3A512%2C%22width%22%3A512%2C%22format%22%3A%22png%22%7D%7D&clientId=067aa550ed5f2b3c98a650a02949d63e&theme=dark&primaryColor=green";
-        iframe.title = "Psychedelic Seasons Minting Section";
-        // Add other iframe attributes here as needed
-
-        placeholder.appendChild(iframe);
-
-        // Remove the event listener to prevent multiple injections
-        document.removeEventListener("scroll", arguments.callee);
-    }
-});
-
-
-    </script>
-</body>
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
